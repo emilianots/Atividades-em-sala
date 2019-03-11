@@ -1,15 +1,15 @@
 "use strict";
 class Pessoa {
-    constructor(nome, dataNasc, altura) {
+    constructor(nome, altura, dataNasc) {
         this._nome = nome;
         this._altura = altura;
-        this._dataNasc = new Date(dataNasc);
+        this._dataNasc = dataNasc;
     }
     get nome() {
         return this._nome;
     }
     get dataNasc() {
-        return "" + this._dataNasc;
+        return `${this._dataNasc.getFullYear()}-${this._dataNasc.getMonth()}-${this._dataNasc.getDay()}`;
     }
     get altura() {
         return this._altura;
@@ -31,6 +31,10 @@ class Pessoa {
         return `Nome: ${this._nome} \nData de nascimento: ${this.dataNasc} \nIdade: ${this.calcIdade()} anos \nAltura: ${this._altura}`;
     }
 }
-let p = new Pessoa("Zé", "1997-2-10", "1.80");
-//console.log(p.calcIdade());
-console.log("" + p);
+class Main {
+    constructor(nome, altura, dataNasc) {
+        this.pessoa = new Pessoa(nome, altura, new Date(dataNasc));
+    }
+}
+let m = new Main("Clark", "1,90", "1988-3-12");
+console.log("" + m.pessoa);

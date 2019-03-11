@@ -3,10 +3,10 @@ class Pessoa {
     private _altura: string;
     private _dataNasc: Date;
 
-    constructor(nome: string, dataNasc: string, altura: string) {
+    constructor(nome: string, altura: string, dataNasc: Date) {
         this._nome = nome;
         this._altura = altura;
-        this._dataNasc = new Date(dataNasc);
+        this._dataNasc = dataNasc;
     }
 
     public get nome(): string {
@@ -14,7 +14,7 @@ class Pessoa {
     }
 
     public get dataNasc(): string {
-        return "" + this._dataNasc;
+        return `${this._dataNasc.getFullYear()}-${this._dataNasc.getMonth()}-${this._dataNasc.getDay()}`;
     }
 
     public get altura(): string{
@@ -43,7 +43,15 @@ class Pessoa {
     }
 }
 
-let p = new Pessoa("Zé", "1997-2-10", "1.80");
 
-//console.log(p.calcIdade());
-console.log("" + p);
+class Main{
+    public pessoa: Pessoa;
+
+    constructor(nome: string, altura: string, dataNasc: string){
+        this.pessoa = new Pessoa(nome, altura, new Date(dataNasc));
+    }
+}
+
+let m: Main = new Main("Clark", "1,90", "1988-3-12");
+
+console.log("" + m.pessoa);
