@@ -1,0 +1,23 @@
+<div class="container">
+    
+    <div class="alert alert-primary" role="alert">
+        Seu nome é {{nome}}
+    </div>
+
+    <div class="form-group">
+        <label>Nome</label>
+        <input type="text" 
+               class="form-control"
+               (input)="mudar($event)"
+               value={{nome}}>
+    </div>
+
+    <app-datepicker-popup (minhaData)="mostrarData($event)">
+
+    </app-datepicker-popup>
+
+    <button type="button" 
+            class="btn btn-primary"
+            (click)="salvar()"
+            [disabled]="nome.length==0">Salvar</button>
+</div>

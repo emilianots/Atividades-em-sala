@@ -1,0 +1,33 @@
+<div class="container">
+    
+    <div class="alert alert-{{alerta}}" role="alert">
+        O RESULTADO DO INVESTIMENTO É {{valor}}
+    </div>
+
+    <div class="form-group">
+        <label>Dia</label>
+        <input type="text" 
+               class="form-control"
+               #valorDia>
+
+        <label>Mes</label>
+        <input type="text" 
+               class="form-control"
+               #valorMes>
+
+        <label>Ano</label>
+        <input type="text" 
+               class="form-control"
+               #valorAno>
+
+        <label>Investimento</label>
+        <input type="text" 
+               class="form-control"
+               #valorInvestimento>
+    </div>
+
+    <button type="button" 
+            class="btn btn-primary"
+            (click)="iBettMyMoney(valorDia.value, valorMes.value, valorAno.value, valorInvestimento.value)"
+            [disabled]="nome.length==0">Salvar</button>
+</div>
